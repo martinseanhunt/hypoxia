@@ -9,7 +9,9 @@ export default function(containerRef) {
         path: 'root',
         screens: {
           Home: 'home',
-          Links: 'links',
+          Learn: 'learn',
+          Guided: 'guided',
+          Practice: 'practice',
           Settings: 'settings',
         },
       },
