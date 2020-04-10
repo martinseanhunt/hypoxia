@@ -44,26 +44,20 @@ export default function App(props) {
 
   return (
     <StyledView>
-      <StyledLinearGradient
-        colors={['#aae5f2', '#89f7fe']}
-      >
-        <StatusBar barStyle="default" backgroundColor="#aae5f2" barStyle="light-content" />
-        
-        {!isLoadingComplete && !props.skipLoadingScreen ? (
-          <LoadingView><Text>Loading...</Text></LoadingView>
-        ) : (
-          <NavigationContainer 
-            ref={containerRef} 
-            initialState={initialNavigationState}
-          >
-                      <Text>Flapper</Text>
-
-            <StyledNavigator>
-              <Stack.Screen name="Root" component={BottomTabNavigator} />
-            </StyledNavigator>
-          </NavigationContainer>
-        )}
-      </StyledLinearGradient>
+      <StatusBar barStyle="default" backgroundColor="#aae5f2" barStyle="light-content" />
+      
+      {!isLoadingComplete && !props.skipLoadingScreen ? (
+        <LoadingView><Text>Loading...</Text></LoadingView>
+      ) : (
+        <NavigationContainer 
+          ref={containerRef} 
+          initialState={initialNavigationState}
+        >
+          <Stack.Navigator>
+            <Stack.Screen name="Root" component={BottomTabNavigator} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      )}
     </StyledView>
   )
 }
@@ -76,16 +70,4 @@ const LoadingView = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-`
-
-const StyledLinearGradient = styled(LinearGradient)`
-  flex: 1
-`
-
-const StyledNavigator = styled(Stack.Navigator)`
-  background: green;
-`
-
-const StyledScreen = styled(Stack.Screen)`
-  background: transparent;
 `

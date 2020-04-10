@@ -16,16 +16,13 @@ export default function BottomTabNavigator({ navigation, route }) {
   
   navigation.setOptions({ 
     headerShown: false,
-    transparentCard: true,
-    cardStyle: { 
-      opacity: 1,
-      backgroundColor: "transparent" // Not working? 
-    }
     //headerTitle: getHeaderTitle(route) 
   })
 
   return (
-    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+    <BottomTab.Navigator 
+      initialRouteName={INITIAL_ROUTE_NAME}
+    >
       <BottomTab.Screen
         name="Learn"
         component={HomeScreen}
@@ -33,6 +30,7 @@ export default function BottomTabNavigator({ navigation, route }) {
           title: 'Learn',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
         }}
+        
       />
       <BottomTab.Screen
         name="Guided"
